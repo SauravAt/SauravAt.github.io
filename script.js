@@ -120,4 +120,90 @@ function createMemory() {
 /* Slow & dreamy frequency */
 setInterval(createMemory, 12000);
 
+const portalTunnel = document.getElementById("portal-tunnel");
+const hero = document.querySelector(".tunnel-hero");
+const text = document.querySelector(".tunnel-text");
+const starsContainer = document.getElementById("tunnel-stars");
+const music = document.getElementById("portal-music");
+
+let portalTriggered = false;
+
+// Floating particle templates (stars, hearts, mini inside-jokes)
+const particleEmojis = ["💗","🌸","✨","💌","😊","🌙"]; // can add inside-joke words
+function spawnParticle() {
+  const particle = document.createElement("div");
+  particle.className = "portal-particle";
+  particle.innerText = particleEmojis[Math.floor(Math.random()*particleEmojis.length)];
+
+  // Random 3D positions
+  const x = (Math.random()*200 - 100) + "px";
+  const y = (-Math.random()*300) + "px";
+  const z = (-Math.random()*300) + "px";
+  particle.style.left = "50%";
+  particle.style.top = "50%";
+  particle.style.transform = `translate3d(${x},${y},${z})`;
+  
+  // Random animation
+  const duration = 5 + Math.random()*5;
+  particle.animate([
+    { transform: `translate3d(${x},${y},${z})`, opacity: 0.4 },
+    { transform: `translate3d(${x},${parseInt(y)+600}px,${parseInt(z)+100}px)`, opacity: 0 }
+  ], { duration: duration*1000, easing: "ease-out" });
+
+  starsContainer.appendChild(particle);
+  setTimeout(()=> particle.remove(), duration*1000);
+}
+
+// Spawn particles continuously
+setInterval(()=> { if(portalTriggered) spawnParticle(); }, 200);
+
+// Trigger portal tunnel on scroll near the end
+window.addEventListener("scroll", () => {
+  if(portalTriggered) return;
+
+  const progress = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+  
+  if(progress > 0.93){
+    portalTriggered = true;
+    portalTunnel.classList.add("active");
+    music.play();
+
+    // Hero image zoom & text reveal handled below
+  }
+
+  // Zoom hero image as she scrolls deeper
+  if(portalTriggered){
+    let scale = 0.8 + (progress-0.93)*5;
+    if(scale>1.2) scale = 1.2;
+    hero.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+    // Reveal confession text after hero scales
+    if(scale > 1.05) text.style.opacity = 1;
+  }
+});
+
+// Tap for heart explosion
+document.addEventListener("click", (e)=>{
+  if(!portalTriggered) return;
+
+  for(let i=0;i<12;i++){
+    const p = document.createElement("div");
+    p.className="portal-particle";
+    p.innerText = particleEmojis[Math.floor(Math.random()*particleEmojis.length)];
+    p.style.left=e.clientX+"px";
+    p.style.top=e.clientY+"px";
+    p.style.transform=`translate3d(0,0,0)`;
+    const dur = 1000 + Math.random()*1000;
+    const x = (Math.random()*120-60);
+    const y = (Math.random()*-120);
+    const z = (Math.random()*80-40);
+    p.animate([
+      { transform:`translate3d(0,0,0)`, opacity:1 },
+      { transform:`translate3d(${x}px,${y}px,${z}px)`, opacity:0 }
+    ],{duration:dur, easing:"ease-out"});
+    starsContainer.appendChild(p);
+    setTimeout(()=>p.remove(),dur);
+  }
+});
+
 
