@@ -155,8 +155,9 @@ button:active {
   background-position: center;
   opacity: 0;
   z-index: 1;
-  filter: blur(0.3px);
-  animation: floatMemory 14s ease-in-out forwards;
+  filter: brightness(1.08) saturate(1.1);
+  box-shadow:0 0 25px rgba(255, 170, 200. 0.35);
+  animation: floatMemory 8s ease-in-out forwards;
   pointer-events: none;
 }
 
@@ -166,10 +167,10 @@ button:active {
     transform: translateY(20px) scale(0.9);
   }
   20% {
-    opacity: 0.35;
+    opacity: 0.45;
   }
   80% {
-    opacity: 0.35;
+    opacity: 0.45;
   }
   100% {
     opacity: 0;
@@ -180,8 +181,9 @@ button:active {
 /* Smaller on very small phones */
 @media (max-width: 360px) {
   .memory {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 18px rgba(255, 170, 200, 0.3);
   }
 }
 
