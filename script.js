@@ -91,6 +91,31 @@ function fadeInMusic() {
     }
   }, 200);
 }
+const memories = [
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg"
+];
 
+function createMemory() {
+  const memory = document.createElement("div");
+  memory.className = "memory";
+
+  const img = memories[Math.floor(Math.random() * memories.length)];
+  memory.style.backgroundImage = `url(${img})`;
+
+  memory.style.left = Math.random() * 80 + 10 + "%";
+  memory.style.top = Math.random() * 60 + 20 + "%";
+
+  document.body.appendChild(memory);
+
+  setTimeout(() => {
+    memory.remove();
+  }, 14000);
+}
+
+/* Slow & dreamy frequency */
+setInterval(createMemory, 12000);
 
 
