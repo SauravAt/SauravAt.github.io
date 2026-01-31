@@ -35,6 +35,13 @@ function generateReason() {
 
 /* Typing effect */
 const letterText = `
+I was not looking for you when you met me,
+but now with you, it feels like a part of me
+always wanted to have you.
+--My heart stopped searching for anything 
+else the moment it found you.
+
+
 I don’t know what the future looks like.
 I don’t pretend to have answers.
 
