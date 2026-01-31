@@ -69,3 +69,28 @@ function startTyping() {
 function revealSecret() {
   document.getElementById("hidden-text").style.display = "block";
 }
+/* Background Music */
+const music = document.getElementById("bg-music");
+
+function startExperience() {
+  scrollToSection('timeline');
+  fadeInMusic();
+}
+
+function fadeInMusic() {
+  music.volume = 0;
+  music.play();
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 0.4) {
+      vol += 0.02;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+}
+
+
+
