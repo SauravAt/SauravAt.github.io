@@ -114,10 +114,10 @@ function createMemory() {
 
   setTimeout(() => {
     memory.remove();
-  }, 8000);
+  }, 14000);
 }
 
 /* Slow & dreamy frequency */
-setInterval(createMemory, 6000);
+setInterval(createMemory, 12000);
 
 
