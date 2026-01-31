@@ -35,6 +35,8 @@ section {
   align-items: center;
   text-align: center;
   scroll-snap-align: start;
+  position: relative;
+  z-index: 2;
 }
 
 h1, h3 {
@@ -144,3 +146,44 @@ button:active {
   opacity: 1;
   transform: translateY(0);
 }
+.memory {
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 1;
+  filter: blur(0.3px);
+  animation: floatMemory 14s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes floatMemory {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  20% {
+    opacity: 0.35;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1);
+  }
+}
+
+/* Smaller on very small phones */
+@media (max-width: 360px) {
+  .memory {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
+
