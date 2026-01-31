@@ -116,6 +116,6 @@ function createMemory() {
 }
 
 /* Slow & dreamy frequency */
-setInterval(createMemory, 12000);
+setInterval(createMemory, 6000);
 
 
