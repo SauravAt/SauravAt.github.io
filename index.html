@@ -1,8 +1,95 @@
-<html>
-  <head>
-    <title> hii</title>
-  </head>
-  <body>
-    what the hell is happening
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You 🤍</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section reveal">
+    <h1 class="drift">Hi you 🌷</h1>
+    <p>
+      I didn’t know how to gift you something<br>
+      that already feels like home.<br><br>
+      So I made a small corner of the internet<br>
+      where it’s always us.
+    </p>
+    <button onclick="scrollToSection('timeline')">Step inside 🤍</button>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="timeline-section reveal">
+    <div class="event">
+      <h3>🌱 The First Hello</h3>
+      <p>
+        It wasn’t dramatic.<br>
+        Just two people<br>
+        accidentally opening a door<br>
+        they’d never want to close.
+      </p>
+    </div>
+
+    <div class="event">
+      <h3>☕ Somewhere Between Then and Now</h3>
+      <p>
+        Conversations grew longer.<br>
+        Silences grew softer.<br><br>
+        And suddenly,<br>
+        your name started sounding<br>
+        like a feeling.
+      </p>
+    </div>
+
+    <div class="event">
+      <h3>🌙 The Moment I Knew</h3>
+      <p>
+        I don’t remember the date.<br>
+        I remember the calm.<br><br>
+        The kind that tells you—<br>
+        this stays.
+      </p>
+    </div>
+  </section>
+
+  <!-- FUN -->
+  <section class="fun-section reveal">
+    <p>
+      Scientists rank things.<br>
+      I don’t.<br><br>
+      Here are a few reasons<br>
+      I keep choosing you—
+    </p>
+
+    <h3 id="reason">Click to find out 💫</h3>
+    <button onclick="generateReason()">One more reason ✨</button>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter-section reveal">
+    <p id="typed-text"></p><span class="cursor"></span>
+    <button onclick="startTyping()">Read that slowly 💌</button>
+  </section>
+
+  <!-- ENDING -->
+  <section class="ending-section reveal">
+    <p>
+      This isn’t a grand gesture.<br><br>
+      Just a reminder—<br>
+      that in a world that keeps changing,<br><br>
+      I still choose you.
+    </p>
+    <small>Come back whenever you miss us 🤍</small>
+    <div id="secret" onclick="revealSecret()">⭐</div>
+    <p id="hidden-text">If you found this, you officially own my favorite smile.</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
 </html>
