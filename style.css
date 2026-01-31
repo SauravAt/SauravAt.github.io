@@ -186,6 +186,38 @@ button:active {
     box-shadow: 0 0 18px rgba(255, 170, 200, 0.3);
   }
 }
+.hero-image-wrapper {
+  margin-bottom: 22px;
+}
+
+.hero-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 10px 30px rgba(255, 170, 200, 0.45),
+    0 0 0 6px rgba(255, 255, 255, 0.7);
+  animation: heroFloat 10s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@media (max-width: 360px) {
+  .hero-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.hero-image:active {
+  transform: scale(0.96);
+}
 
 
 
