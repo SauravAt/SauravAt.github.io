@@ -95,7 +95,9 @@ const memories = [
   "img1.jpeg",
   "img2.jpeg",
   "img3.jpeg",
-  "img4.jpeg"
+  "img4.jpeg",
+  "img5.jpeg",
+  "img6.jpeg"
 ];
 
 function createMemory() {
@@ -112,10 +114,10 @@ function createMemory() {
 
   setTimeout(() => {
     memory.remove();
-  }, 6000);
+  }, 2000);
 }
 
 /* Slow & dreamy frequency */
-setInterval(createMemory, 4000);
+setInterval(createMemory, 2000);
 
 
