@@ -120,3 +120,25 @@ function createMemory() {
 /* Slow & dreamy frequency */
 setInterval(createMemory, 12000);
 
+let finalTriggered = false;
+
+window.addEventListener("scroll", () => {
+  if (finalTriggered) return;
+
+  const progress =
+    (window.scrollY + window.innerHeight) /
+    document.documentElement.scrollHeight;
+
+  if (progress > 0.93) {
+    finalTriggered = true;
+    document.getElementById("final-lock")
+      .classList.add("active");
+  }
+});
+
+document.getElementById("final-btn")
+  .addEventListener("click", () => {
+    document.querySelector(".final-text.delay")
+      .innerText = "Happy Valentine’s Day 🤍";
+  });
+
