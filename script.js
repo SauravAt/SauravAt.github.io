@@ -141,4 +141,21 @@ document.getElementById("final-btn")
     document.querySelector(".final-text.delay")
       .innerText = "Happy Valentine’s Day 🤍";
   });
+function createPetal() {
+  const petal = document.createElement("div");
+  petal.innerText = "🌸";
+  petal.style.position = "fixed";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.top = "-20px";
+  petal.style.opacity = "0.4";
+  petal.style.fontSize = "14px";
+  petal.style.pointerEvents = "none";
+  petal.style.animation = "petalFall 10s linear forwards";
+  document.body.appendChild(petal);
+
+  setTimeout(() => petal.remove(), 10000);
+}
+
+/* Rare & gentle */
+setInterval(createPetal, 15000);
 
