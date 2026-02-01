@@ -292,6 +292,12 @@ button:active {
 @keyframes btnReveal {
   to { opacity: 1; }
 }
+@keyframes petalFall {
+  to {
+    transform: translateY(110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
 
 
 
