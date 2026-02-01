@@ -136,7 +136,6 @@ window.addEventListener("scroll", () => {
       .classList.add("active");
   }
 });
-
 document.getElementById("final-btn")
   .addEventListener("click", () => {
     document.querySelector(".final-text.delay")
