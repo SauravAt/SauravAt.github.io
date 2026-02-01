@@ -91,7 +91,7 @@ function fadeInMusic() {
     }
   }, 200);
 }
-const memories = [
+const images = [
   "img1.jpeg",
   "img2.jpeg",
   "img3.jpeg",
@@ -100,25 +100,25 @@ const memories = [
   "img6.jpeg"
 ];
 
-function createMemory() {
-  const memory = document.createElement("div");
-  memory.className = "memory";
+function popImageCluster() {
+  const count = Math.floor(Math.random() * 2) + 3; // 3 or 4 images
 
-  const img = memories[Math.floor(Math.random() * memories.length)];
-  memory.style.backgroundImage = `url(${img})`;
+  for (let i = 0; i < count; i++) {
+    const img = document.createElement("img");
+    img.src = images[Math.floor(Math.random() * images.length)];
+    img.className = "popup-img";
 
-  memory.style.left = Math.random() * 80 + 10 + "%";
-  memory.style.top = Math.random() * 60 + 20 + "%";
+    img.style.left = `${30 + Math.random() * 40}%`;
+    img.style.top = `${45 + Math.random() * 10}%`;
+    img.style.animationDelay = `${i * 0.3}s`;
 
-  document.body.appendChild(memory);
-
-  setTimeout(() => {
-    memory.remove();
-  }, 14000);
+    document.body.appendChild(img);
+    setTimeout(() => img.remove(), 6000);
+  }
 }
 
-/* Slow & dreamy frequency */
-setInterval(createMemory, 12000);
+// every 4 seconds
+setInterval(popImageCluster, 4000););
 
 let finalTriggered = false;
 
