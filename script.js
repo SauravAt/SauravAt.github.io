@@ -159,3 +159,19 @@ function createPetal() {
 /* Rare & gentle */
 setInterval(createPetal, 15000);
 
+
+document.addEventListener("click", (e) => {
+  const heart = document.createElement("div");
+  heart.innerText = "💗";
+  heart.style.position = "fixed";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+  heart.style.fontSize = "14px";
+  heart.style.opacity = "0.7";
+  heart.style.pointerEvents = "none";
+  heart.style.animation = "tapHeart 2.5s ease-out forwards";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 2500);
+});
+
