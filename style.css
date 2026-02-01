@@ -220,6 +220,78 @@ button:active {
 }
 
 /* STAR */
+#final-lock {
+  position: fixed;
+  inset: 0;
+  background: #0f0b10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+  z-index: 1000;
+}
+
+#final-lock.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.final-content {
+  text-align: center;
+  max-width: 320px;
+}
+
+.final-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 40px rgba(255, 190, 210, 0.45);
+  animation: slowZoom 12s ease forwards;
+  margin-bottom: 30px;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.final-text {
+  opacity: 0;
+  font-size: 1rem;
+  margin-bottom: 14px;
+  animation: fadeUp 2s ease forwards;
+}
+
+.final-text.delay {
+  animation-delay: 2.5s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 0.85;
+    transform: translateY(-4px);
+  }
+}
+
+#final-btn {
+  margin-top: 25px;
+  padding: 12px 26px;
+  border-radius: 25px;
+  border: none;
+  background: #ffd1dc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0;
+  animation: btnReveal 2s ease forwards;
+  animation-delay: 5.5s;
+}
+
+@keyframes btnReveal {
+  to { opacity: 1; }
+}
 
 
 
